@@ -1,0 +1,35 @@
+﻿@model IEnumerable<DovizKuru.Models.DovizKuruModel>
+
+@{ 
+    ViewBag.Title = "Home Page"; 
+}
+
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+
+<div class="jumbotron">
+    <h2 style="text-align:center">Güncel Döviz Kurları</h2>
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <td>Kod</td>
+                <td>Birim</td>
+                <td>İsim</td>
+                <td>Alış Fiyatı</td>
+                <td>Satış Fiyatı</td>
+            </tr>
+        </thead>
+        <tbody>
+            @{ foreach (DovizKuru.Models.DovizKuruModel kur in Model)
+                {
+                    <tr>
+                        <td>@kur.CurrencyCode</td>
+                        <td>@kur.Unit</td>
+                        <td>@kur.Isim</td>
+                        <td>@kur.ForexBuying</td>
+                        <td>@kur.ForexSelling</td>
+                    </tr>
+                } 
+             }
+        </tbody>
+    </table>
+</div>
